@@ -11,7 +11,5 @@ export interface ObservableValue<S = any> {
 export type ValueInitializer<T> = T | (() => T)
 export type ValueCallback<S> = (newState: S) => void
 export type ValueCallbackUnsubscribe = () => void
-export type ValueReseter = () => void
-export type ValueUpdater<S> = (newValue: S) => void
 export type ValueDiffer<S> = (oldState: S, newState: S) => boolean
 export type CreateValue = <S>(initialState: S) => ObservableValue<S>
