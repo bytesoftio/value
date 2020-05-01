@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@bytesoftio/use-value | @bytesoftio/use-value</title>
+	<title>@bytesoftio/value | @bytesoftio/value</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -2335,7 +2335,7 @@ img {
 		<div class="container">
 			<div class="table-wrap">
 				<div class="table-cell">
-					<strong><a href="index.html">@bytesoftio/use-value</a></strong>
+					<strong><a href="index.html">@bytesoftio/value</a></strong>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -2369,19 +2369,16 @@ img {
 			<a href="classes/value.html" class="tsd-kind-icon">Value</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-has-type-parameter">
-			<a href="interfaces/hookvalue.html" class="tsd-kind-icon">Hook<wbr>Value</a>
+			<a href="interfaces/observablevalue.html" class="tsd-kind-icon">Observable<wbr>Value</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
 			<a href="globals.html#createvalue" class="tsd-kind-icon">Create<wbr>Value</a>
 		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#hookkind" class="tsd-kind-icon">Hook<wbr>Kind</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#usevalue" class="tsd-kind-icon">Use<wbr>Value</a>
-		</li>
 		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
 			<a href="globals.html#valuecallback" class="tsd-kind-icon">Value<wbr>Callback</a>
+		</li>
+		<li class=" tsd-kind-type-alias">
+			<a href="globals.html#valuecallbackunsubscribe" class="tsd-kind-icon">Value<wbr>Callback<wbr>Unsubscribe</a>
 		</li>
 		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
 			<a href="globals.html#valuediffer" class="tsd-kind-icon">Value<wbr>Differ</a>
@@ -2393,29 +2390,23 @@ img {
 			<a href="globals.html#valuereseter" class="tsd-kind-icon">Value<wbr>Reseter</a>
 		</li>
 		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-			<a href="globals.html#valuespread" class="tsd-kind-icon">Value<wbr>Spread</a>
-		</li>
-		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
 			<a href="globals.html#valueupdater" class="tsd-kind-icon">Value<wbr>Updater</a>
 		</li>
 		<li class=" tsd-kind-function">
 			<a href="globals.html#createvalue" class="tsd-kind-icon">create<wbr>Value</a>
-		</li>
-		<li class=" tsd-kind-function tsd-has-type-parameter">
-			<a href="globals.html#usevalue" class="tsd-kind-icon">use<wbr>Value</a>
 		</li>
 	</ul>
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
 		<div class="tsd-panel tsd-typography">
-			<a href="#bytesoftiouse-value" id="bytesoftiouse-value" style="color: inherit; text-decoration: none;">
-				<h1>@bytesoftio/use-value</h1>
+			<a href="#bytesoftiovalue" id="bytesoftiovalue" style="color: inherit; text-decoration: none;">
+				<h1>@bytesoftio/value</h1>
 			</a>
 			<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 				<h2>Installation</h2>
 			</a>
-			<p><code>yarn add @bytesoftio/use-value</code> or <code>npm install @bytesoftio/use-value</code></p>
+			<p><code>yarn add @bytesoftio/value or</code>npm install <code>@bytesoftio/value</code></p>
 			<a href="#table-of-contents" id="table-of-contents" style="color: inherit; text-decoration: none;">
 				<h2>Table of contents</h2>
 			</a>
@@ -2423,47 +2414,30 @@ img {
 			<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 			<ul>
 				<li><a href="#description">Description</a></li>
-				<li><a href="#usage">Usage</a><ul>
-						<li><a href="#createvalue">createValue</a></li>
-						<li><a href="#hookvalue">HookValue</a></li>
-						<li><a href="#usevalue">useValue</a></li>
-					</ul>
-				</li>
+				<li><a href="#createvalue">createValue</a></li>
+				<li><a href="#observablevalue">ObservableValue</a></li>
+				<li><a href="#usage-in-react">Usage in React</a></li>
 			</ul>
 			<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 			<a href="#description" id="description" style="color: inherit; text-decoration: none;">
 				<h2>Description</h2>
 			</a>
-			<p>This package provides an abstraction on top of <code>setState</code>. It can be used as a
-				drop in replacement. It allows you to write services that will work inside
-				React, leveraging its hooks api, but also outside of React. It provides a
-			very simple, observable like object <code>HookValue</code>.</p>
-			<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
-				<h2>Usage</h2>
-			</a>
+			<p>This package provides a generic observable value that can be used in any environment. Additionally there is the <a href="https://github.com/bytesoftio/use-value">@bytesoftio/use-value</a> package that provides a seemless integration with React hooks. This allows you to write services that would work inside React, leveraging its hooks api, but also outside of React. It provides a very simple, observable like object <code>ObservableValue</code>.</p>
 			<a href="#createvalue" id="createvalue" style="color: inherit; text-decoration: none;">
-				<h3>createValue</h3>
+				<h2>createValue</h2>
 			</a>
-			<p>Create a simple observable value that can be hooked into any functional
-			component. Returns an instance of <code>HookValue</code>.</p>
-			<pre><code class="language-ts"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>
-<span class="hljs-keyword">import</span> { createValue } <span class="hljs-keyword">from</span> <span class="hljs-string">"@bytesoftio/use-value"</span>
+			<p>Create a simple observable value that can be hooked into any functional component. Returns an instance of <code>ObservableValue</code>.</p>
+			<pre><code class="language-ts"><span class="hljs-keyword">import</span> { createValue } <span class="hljs-keyword">from</span> <span class="hljs-string">"@bytesoftio/value"</span>
 
-<span class="hljs-keyword">const</span> globalCount = createValue(<span class="hljs-number">0</span>)</code></pre>
-			<a href="#hookvalue" id="hookvalue" style="color: inherit; text-decoration: none;">
-				<h3>HookValue</h3>
+<span class="hljs-keyword">const</span> count = createValue(<span class="hljs-number">0</span>)</code></pre>
+			<a href="#observablevalue" id="observablevalue" style="color: inherit; text-decoration: none;">
+				<h2>ObservableValue</h2>
 			</a>
-			<p>Whenever you create a new value through <code>createValue</code> or <code>useValue</code>, a new
-				instance of <code>HookValue</code> is created behind the scenes. It provides some useful
-				methods like <code>get</code>, <code>set</code>, <code>reset</code>, <code>listen</code> and <code>use</code>. Take a look at the
-			TypeScript definition to learn more about it.</p>
+			<p>Whenever you create a new value through <code>createValue</code>, a new instance of <code>ObservableValue</code> is created behind the scenes. It provides some convenient methods for working with data.</p>
 			<pre><code class="language-tsx">import React from &quot;react&quot;
-import { createValue } from &quot;@bytesoftio/use-value&quot;
+import { createValue } from &quot;@bytesoftio/value&quot;
 
 const globalCount = createValue(0)
-
-// listen to value changes
-globalCount.listen(newState =&gt; console.log(newState))
 
 // get current state of 0
 globalCount.get()
@@ -2478,40 +2452,11 @@ globalCount.reset()
 globalCount.reset(2)
 
 // listen to state changes outside of React
-globalCount.listen((state) =&gt; console.log(state))
-
-// use value similar to how it&#39;s used in React
-const [state, setState, resetState] = globalCount.use()
-
-// use globalCount inside a component
-const Component = () =&gt; {
-  const [count, setCount] = globalCount.use()
-  const increment = () =&gt; setCount(count + 1)
-
-  return &lt;button onClick={increment}&gt;count: {count}&lt;/button&gt;
-}</code></pre>
-			<a href="#usevalue" id="usevalue" style="color: inherit; text-decoration: none;">
-				<h3>useValue</h3>
+globalCount.listen((state) =&gt; console.log(state))</code></pre>
+			<a href="#usage-in-react" id="usage-in-react" style="color: inherit; text-decoration: none;">
+				<h2>Usage in React</h2>
 			</a>
-			<p>For convenience, this helper can be used to hook up a value inside a
-			component, similar to <code>HookValue.use()</code>.</p>
-			<pre><code class="language-tsx">import React from &quot;react&quot;
-import { useValue, createValue } from &quot;@bytesoftio/use-value&quot;
-
-const globalCount = createValue(0)
-
-const Component = () =&gt; {
-  // hook up a new value, creates a new instance of HookValue behind the scenes
-  const [count1, setCount1] = useValue(0)
-  // use an initializer / factory
-  const [count2, setCount2] = useValue(() =&gt; 0)
-  // use an existing instance of HookValue
-  const [count3, setCount3] = useValue(globalCount)
-
-  const increment = () =&gt; setCount1(count1 + 1)
-
-  return &lt;button onClick={increment}&gt;count: {count1}&lt;/button&gt;
-}</code></pre>
+			<p>To learn how to use this package in combination with React, please refer to <a href="https://github.com/bytesoftio/use-value">@bytesoftio/use-value</a> package. </p>
 		</div>
 		<div style="position:relative;"><a name="typedoc-main-index" class="tsd-anchor"></a></div>
 		<section class="tsd-panel-group tsd-index-group">
@@ -2527,20 +2472,18 @@ const Component = () =&gt; {
 					<section class="tsd-index-section ">
 						<h3>Interfaces</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/hookvalue.html" class="tsd-kind-icon">Hook<wbr>Value</a></li>
+							<li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/observablevalue.html" class="tsd-kind-icon">Observable<wbr>Value</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
 						<h3>Type aliases</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-type-alias"><a href="globals.html#createvalue" class="tsd-kind-icon">Create<wbr>Value</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#hookkind" class="tsd-kind-icon">Hook<wbr>Kind</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#usevalue" class="tsd-kind-icon">Use<wbr>Value</a></li>
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#valuecallback" class="tsd-kind-icon">Value<wbr>Callback</a></li>
+							<li class="tsd-kind-type-alias"><a href="globals.html#valuecallbackunsubscribe" class="tsd-kind-icon">Value<wbr>Callback<wbr>Unsubscribe</a></li>
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#valuediffer" class="tsd-kind-icon">Value<wbr>Differ</a></li>
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#valueinitializer" class="tsd-kind-icon">Value<wbr>Initializer</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#valuereseter" class="tsd-kind-icon">Value<wbr>Reseter</a></li>
-							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#valuespread" class="tsd-kind-icon">Value<wbr>Spread</a></li>
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#valueupdater" class="tsd-kind-icon">Value<wbr>Updater</a></li>
 						</ul>
 					</section>
@@ -2548,7 +2491,6 @@ const Component = () =&gt; {
 						<h3>Functions</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-function"><a href="globals.html#createvalue" class="tsd-kind-icon">create<wbr>Value</a></li>
-							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#usevalue" class="tsd-kind-icon">use<wbr>Value</a></li>
 						</ul>
 					</section>
 				</div>
@@ -2559,10 +2501,10 @@ const Component = () =&gt; {
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
 				<a name="createvalue" class="tsd-anchor"></a>
 				<h3>Create<wbr>Value</h3>
-				<div class="tsd-signature tsd-kind-icon">Create<wbr>Value<span class="tsd-signature-symbol">:</span> &lt;S&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="interfaces/hookvalue.html" class="tsd-signature-type">HookValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></div>
+				<div class="tsd-signature tsd-kind-icon">Create<wbr>Value<span class="tsd-signature-symbol">:</span> &lt;S&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="interfaces/observablevalue.html" class="tsd-signature-type">ObservableValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in types.ts:20</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/value/blob/c3e1fff/src/types.ts#L17">types.ts:17</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2570,7 +2512,7 @@ const Component = () =&gt; {
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-signature">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-has-type-parameter">
-								<li class="tsd-signature tsd-kind-icon">&lt;S&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/hookvalue.html" class="tsd-signature-type">HookValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></li>
+								<li class="tsd-signature tsd-kind-icon">&lt;S&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/observablevalue.html" class="tsd-signature-type">ObservableValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
@@ -2586,54 +2528,7 @@ const Component = () =&gt; {
 											<h5>initialState: <span class="tsd-signature-type">S</span></h5>
 										</li>
 									</ul>
-									<h4 class="tsd-returns-title">Returns <a href="interfaces/hookvalue.html" class="tsd-signature-type">HookValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h4>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="hookkind" class="tsd-anchor"></a>
-				<h3>Hook<wbr>Kind</h3>
-				<div class="tsd-signature tsd-kind-icon">Hook<wbr>Kind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"react"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"plain"</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in types.ts:14</li>
-					</ul>
-				</aside>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="usevalue" class="tsd-anchor"></a>
-				<h3>Use<wbr>Value</h3>
-				<div class="tsd-signature tsd-kind-icon">Use<wbr>Value<span class="tsd-signature-symbol">:</span> &lt;S&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><a href="interfaces/hookvalue.html" class="tsd-signature-type">HookValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><a href="interfaces/hookvalue.html" class="tsd-signature-type">HookValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="globals.html#valuespread" class="tsd-signature-type">ValueSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in types.ts:21</li>
-					</ul>
-				</aside>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter-signature">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-has-type-parameter">
-								<li class="tsd-signature tsd-kind-icon">&lt;S&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><a href="interfaces/hookvalue.html" class="tsd-signature-type">HookValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><a href="interfaces/hookvalue.html" class="tsd-signature-type">HookValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#valuespread" class="tsd-signature-type">ValueSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></li>
-							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-type-parameters-title">Type parameters</h4>
-									<ul class="tsd-type-parameters">
-										<li>
-											<h4>S</h4>
-										</li>
-									</ul>
-									<h4 class="tsd-parameters-title">Parameters</h4>
-									<ul class="tsd-parameters">
-										<li>
-											<h5>initialState: <span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><a href="interfaces/hookvalue.html" class="tsd-signature-type">HookValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><a href="interfaces/hookvalue.html" class="tsd-signature-type">HookValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span></h5>
-										</li>
-									</ul>
-									<h4 class="tsd-returns-title">Returns <a href="globals.html#valuespread" class="tsd-signature-type">ValueSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									<h4 class="tsd-returns-title">Returns <a href="interfaces/observablevalue.html" class="tsd-signature-type">ObservableValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h4>
 								</li>
 							</ul>
 						</li>
@@ -2646,7 +2541,7 @@ const Component = () =&gt; {
 				<div class="tsd-signature tsd-kind-icon">Value<wbr>Callback&lt;S&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in types.ts:15</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/value/blob/c3e1fff/src/types.ts#L12">types.ts:12</a></li>
 					</ul>
 				</aside>
 				<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -2677,13 +2572,38 @@ const Component = () =&gt; {
 					</ul>
 				</div>
 			</section>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias">
+				<a name="valuecallbackunsubscribe" class="tsd-anchor"></a>
+				<h3>Value<wbr>Callback<wbr>Unsubscribe</h3>
+				<div class="tsd-signature tsd-kind-icon">Value<wbr>Callback<wbr>Unsubscribe<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/bytesoftio/value/blob/c3e1fff/src/types.ts#L13">types.ts:13</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-type-declaration">
+					<h4>Type declaration</h4>
+					<ul class="tsd-parameters">
+						<li class="tsd-parameter-signature">
+							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+							</ul>
+							<ul class="tsd-descriptions">
+								<li class="tsd-description">
+									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
 				<a name="valuediffer" class="tsd-anchor"></a>
 				<h3>Value<wbr>Differ</h3>
 				<div class="tsd-signature tsd-kind-icon">Value<wbr>Differ&lt;S&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>oldState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span>, newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in types.ts:19</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/value/blob/c3e1fff/src/types.ts#L16">types.ts:16</a></li>
 					</ul>
 				</aside>
 				<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -2723,7 +2643,7 @@ const Component = () =&gt; {
 				<div class="tsd-signature tsd-kind-icon">Value<wbr>Initializer&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in types.ts:13</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/value/blob/c3e1fff/src/types.ts#L11">types.ts:11</a></li>
 					</ul>
 				</aside>
 				<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -2739,7 +2659,7 @@ const Component = () =&gt; {
 				<div class="tsd-signature tsd-kind-icon">Value<wbr>Reseter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in types.ts:17</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/value/blob/c3e1fff/src/types.ts#L14">types.ts:14</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2759,28 +2679,12 @@ const Component = () =&gt; {
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
-				<a name="valuespread" class="tsd-anchor"></a>
-				<h3>Value<wbr>Spread</h3>
-				<div class="tsd-signature tsd-kind-icon">Value<wbr>Spread&lt;S&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><a href="globals.html#valueupdater" class="tsd-signature-type">ValueUpdater</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="globals.html#valuereseter" class="tsd-signature-type">ValueReseter</a><span class="tsd-signature-symbol">]</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in types.ts:16</li>
-					</ul>
-				</aside>
-				<h4 class="tsd-type-parameters-title">Type parameters</h4>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>S</h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
 				<a name="valueupdater" class="tsd-anchor"></a>
 				<h3>Value<wbr>Updater</h3>
 				<div class="tsd-signature tsd-kind-icon">Value<wbr>Updater&lt;S&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>newValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in types.ts:18</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/value/blob/c3e1fff/src/types.ts#L15">types.ts:15</a></li>
 					</ul>
 				</aside>
 				<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -2824,7 +2728,7 @@ const Component = () =&gt; {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in createValue.ts:4</li>
+								<li>Defined in <a href="https://github.com/bytesoftio/value/blob/c3e1fff/src/createValue.ts#L4">createValue.ts:4</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2834,35 +2738,6 @@ const Component = () =&gt; {
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="classes/value.html" class="tsd-signature-type">Value</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
-				<a name="usevalue" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> use<wbr>Value</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">use<wbr>Value&lt;S&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>newValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">]</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in useValue.ts:5</li>
-							</ul>
-						</aside>
-						<h4 class="tsd-type-parameters-title">Type parameters</h4>
-						<ul class="tsd-type-parameters">
-							<li>
-								<h4>S</h4>
-							</li>
-						</ul>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>initialState: <span class="tsd-signature-type">any</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>newValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">]</span></h4>
 					</li>
 				</ul>
 			</section>

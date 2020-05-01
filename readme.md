@@ -1,8 +1,8 @@
-# @bytesoftio/use-value
+# @bytesoftio/value
 
 ## Installation
 
-`yarn add @bytesoftio/use-value` or `npm install @bytesoftio/use-value`
+`yarn add @bytesoftio/value or `npm install `@bytesoftio/value`
 
 ## Table of contents
 
@@ -11,49 +11,35 @@
 
 
 - [Description](#description)
-- [Usage](#usage)
-  - [createValue](#createvalue)
-  - [HookValue](#hookvalue)
-  - [useValue](#usevalue)
+- [createValue](#createvalue)
+- [ObservableValue](#observablevalue)
+- [Usage in React](#usage-in-react)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Description
 
-This package provides an abstraction on top of `setState`. It can be used as a
-drop in replacement. It allows you to write services that will work inside
-React, leveraging its hooks api, but also outside of React. It provides a
-very simple, observable like object `HookValue`.
+This package provides a generic observable value that can be used in any environment. Additionally there is the [@bytesoftio/use-value](https://github.com/bytesoftio/use-value) package that provides a seemless integration with React hooks. This allows you to write services that would work inside React, leveraging its hooks api, but also outside of React. It provides a very simple, observable like object `ObservableValue`.
 
-## Usage
+## createValue
 
-### createValue
-
-Create a simple observable value that can be hooked into any functional
-component. Returns an instance of `HookValue`.
+Create a simple observable value that can be hooked into any functional component. Returns an instance of `ObservableValue`.
 
 ```ts
-import React from "react"
-import { createValue } from "@bytesoftio/use-value"
+import { createValue } from "@bytesoftio/value"
 
-const globalCount = createValue(0)
+const count = createValue(0)
 ```
 
-###  HookValue
+##  ObservableValue
 
-Whenever you create a new value through `createValue` or `useValue`, a new
-instance of `HookValue` is created behind the scenes. It provides some useful
-methods like `get`, `set`, `reset`, `listen` and `use`. Take a look at the
-TypeScript definition to learn more about it.
+Whenever you create a new value through `createValue`, a new instance of `ObservableValue` is created behind the scenes. It provides some convenient methods for working with data.
 
 ```tsx
 import React from "react"
-import { createValue } from "@bytesoftio/use-value"
+import { createValue } from "@bytesoftio/value"
 
 const globalCount = createValue(0)
-
-// listen to value changes
-globalCount.listen(newState => console.log(newState))
 
 // get current state of 0
 globalCount.get()
@@ -69,40 +55,8 @@ globalCount.reset(2)
 
 // listen to state changes outside of React
 globalCount.listen((state) => console.log(state))
-
-// use value similar to how it's used in React
-const [state, setState, resetState] = globalCount.use()
-
-// use globalCount inside a component
-const Component = () => {
-  const [count, setCount] = globalCount.use()
-  const increment = () => setCount(count + 1)
-  
-  return <button onClick={increment}>count: {count}</button>
-}
 ```
 
-### useValue
+## Usage in React
 
-For convenience, this helper can be used to hook up a value inside a
-component, similar to `HookValue.use()`.
-
-```tsx
-import React from "react"
-import { useValue, createValue } from "@bytesoftio/use-value"
-
-const globalCount = createValue(0)
-
-const Component = () => {
-  // hook up a new value, creates a new instance of HookValue behind the scenes
-  const [count1, setCount1] = useValue(0)
-  // use an initializer / factory
-  const [count2, setCount2] = useValue(() => 0)
-  // use an existing instance of HookValue
-  const [count3, setCount3] = useValue(globalCount)
-  
-  const increment = () => setCount1(count1 + 1)
-
-  return <button onClick={increment}>count: {count1}</button>
-}
-```
+To learn how to use this package in combination with React, please refer to [@bytesoftio/use-value](https://github.com/bytesoftio/use-value) package. 
