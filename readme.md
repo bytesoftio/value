@@ -35,7 +35,7 @@ const count = createValue(0)
 
 Whenever you create a new value through `createValue`, a new instance of `ObservableValue` is created behind the scenes. It provides some convenient methods for working with data.
 
-```tsx
+```ts
 import React from "react"
 import { createValue } from "@bytesoftio/value"
 
