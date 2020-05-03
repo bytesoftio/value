@@ -40,7 +40,7 @@ export class Value<S> implements ObservableValue<S> {
   }
 
   listen(callback: ValueCallback<S>, notifyImmediately = true): ValueCallbackUnsubscribe {
-    const listener = new ValueListener<S>(callback, this, this.differ)
+    const listener = new ValueListener<S>(callback, this.differ)
 
     this.listeners.push(listener)
 
@@ -54,6 +54,6 @@ export class Value<S> implements ObservableValue<S> {
   }
 
   protected notify() {
-    this.listeners.forEach(listener => listener.notify(this.state as any))
+    this.listeners.forEach(listener => listener.notify(this.state))
   }
 }

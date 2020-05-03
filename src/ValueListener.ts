@@ -1,18 +1,15 @@
-import { ObservableValue, ValueCallback, ValueDiffer } from "./types"
+import { ValueCallback, ValueDiffer } from "./types"
 
 export class ValueListener<V> {
   callback: ValueCallback<V>
-  value: ObservableValue<V>
   oldState: V
   differ: ValueDiffer<V>
 
   constructor(
     callback: ValueCallback<V>,
-    value: ObservableValue<V>,
     differ: ValueDiffer<V>,
   ) {
     this.callback = callback
-    this.value = value
     this.oldState = undefined as any
     this.differ = differ
   }
