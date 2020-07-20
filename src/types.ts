@@ -1,15 +1,15 @@
-export interface ObservableValue<S = any> {
-  state: S
-  initialState: S
+export interface ObservableValue<TState = any> {
+  state: TState
+  initialState: TState
 
-  get(): S
-  set(newState: S): void
-  reset(initialState?: S): void
-  listen(callback: ValueCallback<S>, notifyImmediately?: boolean): void
+  get(): TState
+  set(newState: TState): void
+  reset(initialState?: TState): void
+  listen(callback: ValueCallback<TState>, notifyImmediately?: boolean): void
 }
 
-export type ValueInitializer<T> = T | (() => T)
-export type ValueCallback<S> = (newState: S) => void
+export type ValueInitializer<TState> = TState | (() => TState)
+export type ValueCallback<TState> = (newState: TState) => void
 export type ValueCallbackUnsubscribe = () => void
-export type ValueDiffer<S> = (oldState: S, newState: S) => boolean
-export type CreateValue = <S>(initialState: S) => ObservableValue<S>
+export type ValueDiffer<TState> = (oldState: TState, newState: TState) => boolean
+export type CreateValue = <TState>(initialState: TState) => ObservableValue<TState>

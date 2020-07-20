@@ -3,7 +3,7 @@ import { isFunction } from "lodash"
 import { Value } from "./Value"
 import { createValue } from "./createValue"
 
-export const unwrapValue = <S>(initialState: ValueInitializer<S | ObservableValue<S>>): ObservableValue<S> => {
+export const unwrapValue = <TState>(initialState: ValueInitializer<TState | ObservableValue<TState>>): ObservableValue<TState> => {
   let value = isFunction(initialState) ? initialState() : initialState
 
   if ( ! (value instanceof Value)) {

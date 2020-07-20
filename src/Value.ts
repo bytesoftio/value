@@ -2,15 +2,15 @@ import { ObservableValue, ValueCallback, ValueCallbackUnsubscribe, ValueDiffer }
 import { ValueListener } from "./ValueListener"
 import { defaultDiffer } from "./defaultDiffer"
 
-export class Value<S> implements ObservableValue<S> {
-  initialState: S
-  state: S
+export class Value<TState> implements ObservableValue<TState> {
+  initialState: TState
+  state: TState
   differ: ValueDiffer<any>
-  listeners: ValueListener<S>[]
+  listeners: ValueListener<TState>[]
 
   constructor(
-    initialState: S,
-    differ: ValueDiffer<S> = defaultDiffer,
+    initialState: TState,
+    differ: ValueDiffer<TState> = defaultDiffer,
   ) {
     this.initialState = initialState
     this.state = this.initialState
@@ -18,11 +18,11 @@ export class Value<S> implements ObservableValue<S> {
     this.listeners = []
   }
 
-  get(): S {
+  get(): TState {
     return this.state
   }
 
-  set(newState: S) {
+  set(newState: TState) {
     const isDifferent = this.differ(this.state, newState)
 
     if (isDifferent) {
@@ -31,7 +31,7 @@ export class Value<S> implements ObservableValue<S> {
     }
   }
 
-  reset(initialState?: S) {
+  reset(initialState?: TState) {
     if (initialState !== undefined) {
       this.initialState = initialState
     }
@@ -39,8 +39,8 @@ export class Value<S> implements ObservableValue<S> {
     this.set(this.initialState)
   }
 
-  listen(callback: ValueCallback<S>, notifyImmediately = true): ValueCallbackUnsubscribe {
-    const listener = new ValueListener<S>(callback, this.differ)
+  listen(callback: ValueCallback<TState>, notifyImmediately = true): ValueCallbackUnsubscribe {
+    const listener = new ValueListener<TState>(callback, this.differ)
 
     this.listeners.push(listener)
 

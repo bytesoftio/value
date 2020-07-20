@@ -1,24 +1,24 @@
 import { ValueCallback, ValueDiffer } from "./types"
 
-export class ValueListener<V> {
-  callback: ValueCallback<V>
-  oldState: V
-  differ: ValueDiffer<V>
+export class ValueListener<TState> {
+  callback: ValueCallback<TState>
+  state: TState
+  differ: ValueDiffer<TState>
 
   constructor(
-    callback: ValueCallback<V>,
-    differ: ValueDiffer<V>,
+    callback: ValueCallback<TState>,
+    differ: ValueDiffer<TState>,
   ) {
     this.callback = callback
-    this.oldState = undefined as any
+    this.state = undefined as any
     this.differ = differ
   }
 
-  notify(newState: V) {
-    const isDifferent = this.differ(this.oldState, newState)
+  notify(newState: TState) {
+    const isDifferent = this.differ(this.state, newState)
 
     if (isDifferent) {
-      this.oldState = newState
+      this.state = newState
       this.callback(newState)
     }
   }
