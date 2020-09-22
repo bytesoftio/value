@@ -5,7 +5,7 @@ export interface ObservableValue<TState = any> {
   get(): TState
   set(newState: TState): void
   reset(initialState?: TState): void
-  listen(callback: ValueCallback<TState>, notifyImmediately?: boolean): void
+  listen(callback: ValueCallback<TState>, notifyImmediately?: boolean): ValueCallbackUnsubscribe
 }
 
 export type ValueInitializer<TState> = TState | (() => TState)
