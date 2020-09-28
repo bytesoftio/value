@@ -8,7 +8,6 @@ export interface ObservableValue<TState = any> {
   listen(callback: ValueCallback<TState>, notifyImmediately?: boolean): ValueCallbackUnsubscribe
 }
 
-export type ValueInitializer<TState> = TState | (() => TState)
 export type ValueCallback<TState> = (newState: TState) => void
 export type ValueCallbackUnsubscribe = () => void
 export type ValueDiffer<TState> = (oldState: TState, newState: TState) => boolean
