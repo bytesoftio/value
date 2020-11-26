@@ -2,50 +2,50 @@ import { ObservableValue, ValueCallback, ValueCallbackUnsubscribe, ValueDiffer }
 import { ValueListener } from "./ValueListener"
 import { defaultDiffer } from "./defaultDiffer"
 
-export class Value<TState> implements ObservableValue<TState> {
-  initialState: TState
-  state: TState
+export class Value<TValue> implements ObservableValue<TValue> {
+  initialValue: TValue
+  value: TValue
   differ: ValueDiffer<any>
-  listeners: ValueListener<TState>[]
+  listeners: ValueListener<TValue>[]
 
   constructor(
-    initialState: TState,
-    differ: ValueDiffer<TState> = defaultDiffer,
+    initialValue: TValue,
+    differ: ValueDiffer<TValue> = defaultDiffer,
   ) {
-    this.initialState = initialState
-    this.state = this.initialState
+    this.initialValue = initialValue
+    this.value = this.initialValue
     this.differ = differ
     this.listeners = []
   }
 
-  get(): TState {
-    return this.state
+  get(): TValue {
+    return this.value
   }
 
-  set(newState: TState) {
-    const isDifferent = this.differ(this.state, newState)
+  set(newValue: TValue) {
+    const isDifferent = this.differ(this.value, newValue)
 
     if (isDifferent) {
-      this.state = newState
+      this.value = newValue
       this.notify()
     }
   }
 
-  reset(initialState?: TState) {
-    if (initialState !== undefined) {
-      this.initialState = initialState
+  reset(initialValue?: TValue) {
+    if (initialValue !== undefined) {
+      this.initialValue = initialValue
     }
 
-    this.set(this.initialState)
+    this.set(this.initialValue)
   }
 
-  listen(callback: ValueCallback<TState>, notifyImmediately = true): ValueCallbackUnsubscribe {
-    const listener = new ValueListener<TState>(callback, this.differ)
+  listen(callback: ValueCallback<TValue>, notifyImmediately = true): ValueCallbackUnsubscribe {
+    const listener = new ValueListener<TValue>(callback, this.differ)
 
     this.listeners.push(listener)
 
     if (notifyImmediately) {
-      listener.notify(this.state)
+      listener.notify(this.value)
     }
 
     return () => {
@@ -54,6 +54,6 @@ export class Value<TState> implements ObservableValue<TState> {
   }
 
   protected notify() {
-    this.listeners.forEach(listener => listener.notify(this.state))
+    this.listeners.forEach(listener => listener.notify(this.value))
   }
 }

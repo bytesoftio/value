@@ -41,20 +41,20 @@ import { createValue } from "@bytesoftio/value"
 
 const globalCount = createValue(0)
 
-// get current state of 0
+// get current value of 0
 globalCount.get()
 
-// change state to 3
+// change value to 3
 globalCount.set(3)
 
-// reset state back to its initial value of  0
+// reset value back to its initial value of  0
 globalCount.reset()
 
-// change initial value to 2 and reset state
+// change initial value to 2 and reset value
 globalCount.reset(2)
 
-// listen to state changes outside of React
-globalCount.listen((state) => console.log(state))
+// listen to value changes outside of React
+globalCount.listen((value) => console.log(value))
 ```
 
 ## Usage in React
